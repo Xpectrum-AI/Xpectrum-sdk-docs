@@ -8,6 +8,12 @@ const CARDS = [
     icon: "📦",
   },
   {
+    title: "create-xpectrum-app",
+    description: "Scaffold a full Next.js app with chat and voice demos in one command. npx create-xpectrum-app",
+    href: "/docs/create-xpectrum-app",
+    icon: "🚀",
+  },
+  {
     title: "Chat Module",
     description: "Add AI-powered streaming chat to your app. Send messages, manage conversations, handle files.",
     href: "/docs/chat",

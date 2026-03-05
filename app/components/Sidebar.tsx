@@ -8,6 +8,7 @@ const NAV_SECTIONS = [
     title: "Getting Started",
     items: [
       { label: "Introduction", href: "/docs/getting-started" },
+      { label: "create-xpectrum-app", href: "/docs/create-xpectrum-app" },
     ],
   },
   {
