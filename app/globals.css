@@ -2,7 +2,56 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #111827;
+  --sidebar-bg: #f9fafb;
+  --sidebar-border: #e5e7eb;
+  --accent: #7c3aed;
+  --accent-light: #ede9fe;
+  --code-bg: #1e1e2e;
+  --code-text: #cdd6f4;
+  --code-border: #313244;
+  --inline-code-bg: #f3f4f6;
+  --inline-code-text: #7c3aed;
+  --border: #e5e7eb;
+  --muted: #6b7280;
+  --card-bg: #ffffff;
+  --card-border: #e5e7eb;
+  --table-header-bg: #f9fafb;
+  --table-border: #e5e7eb;
+  --warning-bg: #fffbeb;
+  --warning-border: #f59e0b;
+  --info-bg: #eff6ff;
+  --info-border: #3b82f6;
+  --success-bg: #ecfdf5;
+  --success-border: #10b981;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a;
+    --foreground: #e2e8f0;
+    --sidebar-bg: #1e293b;
+    --sidebar-border: #334155;
+    --accent: #a78bfa;
+    --accent-light: #1e1b4b;
+    --code-bg: #1e1e2e;
+    --code-text: #cdd6f4;
+    --code-border: #313244;
+    --inline-code-bg: #1e293b;
+    --inline-code-text: #a78bfa;
+    --border: #334155;
+    --muted: #94a3b8;
+    --card-bg: #1e293b;
+    --card-border: #334155;
+    --table-header-bg: #1e293b;
+    --table-border: #334155;
+    --warning-bg: #451a0340;
+    --warning-border: #f59e0b;
+    --info-bg: #1e3a5f40;
+    --info-border: #3b82f6;
+    --success-bg: #064e3b40;
+    --success-border: #10b981;
+  }
 }
 
 @theme inline {
@@ -12,15 +61,24 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, -apple-system, sans-serif;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
 }

@@ -1,102 +1,149 @@
-import Image from "next/image";
+import Link from "next/link";
+
+const CARDS = [
+  {
+    title: "Getting Started",
+    description: "Install the SDK, configure credentials, and verify your setup in under 5 minutes.",
+    href: "/docs/getting-started",
+    icon: "📦",
+  },
+  {
+    title: "Chat Module",
+    description: "Add AI-powered streaming chat to your app. Send messages, manage conversations, handle files.",
+    href: "/docs/chat",
+    icon: "💬",
+  },
+  {
+    title: "Voice Module",
+    description: "Real-time AI voice calls with WebRTC. Transcription, mic control, agent speaking detection.",
+    href: "/docs/voice",
+    icon: "🎙️",
+  },
+  {
+    title: "React Examples",
+    description: "Complete, copy-paste React components for chat and voice. Built with Vite + TypeScript.",
+    href: "/docs/react-examples",
+    icon: "⚛️",
+  },
+  {
+    title: "Next.js Examples",
+    description: "Full Next.js App Router examples with environment variables, client components, and hooks.",
+    href: "/docs/nextjs-examples",
+    icon: "▲",
+  },
+  {
+    title: "Widgets",
+    description: "Drop-in floating chat and voice widgets. Zero UI code needed — just configure and go.",
+    href: "/docs/widgets",
+    icon: "🧩",
+  },
+  {
+    title: "API Reference",
+    description: "Every class, method, type, event, and config option documented in detail.",
+    href: "/docs/api-reference",
+    icon: "📖",
+  },
+  {
+    title: "Troubleshooting",
+    description: "Common errors, debugging tips, and solutions for known issues.",
+    href: "/docs/troubleshooting",
+    icon: "🔧",
+  },
+];
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-screen flex flex-col">
+      {/* Hero */}
+      <header
+        className="border-b"
+        style={{ borderColor: "var(--border)" }}
+      >
+        <div className="max-w-6xl mx-auto px-6 py-20 text-center">
+          <div className="flex justify-center mb-6">
+            <div
+              className="w-16 h-16 rounded-2xl flex items-center justify-center text-white font-bold text-2xl"
+              style={{ background: "var(--accent)" }}
+            >
+              X
+            </div>
+          </div>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
+            @xpectrum/sdk
+          </h1>
+          <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--muted)" }}>
+            Add AI Chat &amp; Voice to any React or Next.js app. Install once, configure with your
+            server URL + API key, and build your own AI-powered frontend.
+          </p>
+          <div className="flex gap-4 justify-center mt-8">
+            <Link
+              href="/docs/getting-started"
+              className="px-6 py-3 rounded-lg text-white font-medium no-underline text-sm transition-opacity hover:opacity-90"
+              style={{ background: "var(--accent)" }}
+            >
+              Get Started
+            </Link>
+            <Link
+              href="/docs/api-reference"
+              className="px-6 py-3 rounded-lg font-medium no-underline text-sm border transition-colors"
+              style={{
+                borderColor: "var(--border)",
+                color: "var(--foreground)",
+              }}
+            >
+              API Reference
+            </Link>
+          </div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+          {/* Quick install */}
+          <div
+            className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-lg font-mono text-sm"
+            style={{ background: "var(--code-bg)", color: "var(--code-text)" }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <span style={{ color: "var(--muted)" }}>$</span>
+            npm install @xpectrum/sdk
+          </div>
+        </div>
+      </header>
+
+      {/* Cards Grid */}
+      <main className="flex-1">
+        <div className="max-w-6xl mx-auto px-6 py-16">
+          <h2
+            className="text-sm font-semibold uppercase tracking-wider mb-8"
+            style={{ color: "var(--muted)" }}
           >
-            Read our docs
-          </a>
+            Documentation
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {CARDS.map((card) => (
+              <Link
+                key={card.href}
+                href={card.href}
+                className="block p-6 rounded-xl border no-underline transition-all hover:shadow-md"
+                style={{
+                  background: "var(--card-bg)",
+                  borderColor: "var(--card-border)",
+                  color: "var(--foreground)",
+                }}
+              >
+                <span className="text-2xl mb-3 block">{card.icon}</span>
+                <h3 className="font-semibold text-base mb-2">{card.title}</h3>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--muted)" }}>
+                  {card.description}
+                </p>
+              </Link>
+            ))}
+          </div>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+
+      {/* Footer */}
+      <footer
+        className="border-t py-8 text-center text-sm"
+        style={{ borderColor: "var(--border)", color: "var(--muted)" }}
+      >
+        <p>@xpectrum/sdk v0.1.0 — MIT License</p>
       </footer>
     </div>
   );
