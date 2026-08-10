@@ -8,29 +8,40 @@ const NAV_SECTIONS = [
     title: "Getting Started",
     items: [
       { label: "Introduction", href: "/docs/getting-started" },
-      { label: "create-xpectrum-app", href: "/docs/create-xpectrum-app" },
+      { label: "JavaScript Guide", href: "/docs/javascript-guide" },
     ],
   },
   {
-    title: "Core Modules",
+    title: "Chat",
     items: [
-      { label: "Chat Module", href: "/docs/chat" },
-      { label: "Voice Module", href: "/docs/voice" },
-      { label: "Widgets", href: "/docs/widgets" },
+      { label: "Chat Completions", href: "/docs/chat-completions" },
+      { label: "Models", href: "/docs/models" },
+      { label: "Threads & Messages", href: "/docs/threads" },
     ],
   },
   {
-    title: "Framework Examples",
+    title: "Workflows",
     items: [
-      { label: "React (Vite)", href: "/docs/react-examples" },
-      { label: "Next.js (App Router)", href: "/docs/nextjs-examples" },
+      { label: "Runs", href: "/docs/runs" },
+      { label: "Cancel Tasks", href: "/docs/tasks" },
+    ],
+  },
+  {
+    title: "Knowledge",
+    items: [
+      { label: "Knowledge Search", href: "/docs/knowledge-search" },
+    ],
+  },
+  {
+    title: "App",
+    items: [
+      { label: "App Config", href: "/docs/config" },
     ],
   },
   {
     title: "Reference",
     items: [
-      { label: "API Reference", href: "/docs/api-reference" },
-      { label: "Troubleshooting", href: "/docs/troubleshooting" },
+      { label: "Errors", href: "/docs/errors" },
     ],
   },
 ];
@@ -57,7 +68,7 @@ export default function Sidebar() {
           X
         </div>
         <span className="font-semibold text-lg" style={{ color: "var(--foreground)" }}>
-          Xpectrum SDK
+          Xpectrum API
         </span>
       </Link>
 
@@ -98,8 +109,8 @@ export default function Sidebar() {
         className="mt-8 pt-4 border-t text-xs"
         style={{ borderColor: "var(--sidebar-border)", color: "var(--muted)" }}
       >
-        <p>@xpectrum/sdk v0.1.0</p>
-        <p className="mt-1">MIT License</p>
+        <p>API v1</p>
+        <p className="mt-1">api.cloud.xpectrum.dev</p>
       </div>
     </aside>
   );

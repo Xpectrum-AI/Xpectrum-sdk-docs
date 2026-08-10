@@ -3,56 +3,62 @@ import Link from "next/link";
 const CARDS = [
   {
     title: "Getting Started",
-    description: "Install the SDK, configure credentials, and verify your setup in under 5 minutes.",
+    description: "Base URL, authentication, the user identifier, and your first request in under 5 minutes.",
     href: "/docs/getting-started",
     icon: "📦",
   },
   {
-    title: "create-xpectrum-app",
-    description: "Scaffold a full Next.js app with chat and voice demos in one command. npx create-xpectrum-app",
-    href: "/docs/create-xpectrum-app",
-    icon: "🚀",
+    title: "JavaScript Guide",
+    description: "Step-by-step with plain fetch or @xpectrum/sdk: browser-only setup, the secret-key server proxy, and styling your chat UI.",
+    href: "/docs/javascript-guide",
+    icon: "🛠️",
   },
   {
-    title: "Chat Module",
-    description: "Add AI-powered streaming chat to your app. Send messages, manage conversations, handle files.",
-    href: "/docs/chat",
+    title: "Chat Completions",
+    description: "POST /chat/completions — OpenAI-compatible chat with streaming, vision, and server-side memory.",
+    href: "/docs/chat-completions",
     icon: "💬",
   },
   {
-    title: "Voice Module",
-    description: "Real-time AI voice calls with WebRTC. Transcription, mic control, agent speaking detection.",
-    href: "/docs/voice",
-    icon: "🎙️",
+    title: "Models",
+    description: "GET /models — the OpenAI-compatible model list for your API key.",
+    href: "/docs/models",
+    icon: "🧠",
   },
   {
-    title: "React Examples",
-    description: "Complete, copy-paste React components for chat and voice. Built with Vite + TypeScript.",
-    href: "/docs/react-examples",
-    icon: "⚛️",
+    title: "Threads & Messages",
+    description: "GET /threads — list a user's conversations and fetch full transcripts with citations.",
+    href: "/docs/threads",
+    icon: "🧵",
   },
   {
-    title: "Next.js Examples",
-    description: "Full Next.js App Router examples with environment variables, client components, and hooks.",
-    href: "/docs/nextjs-examples",
-    icon: "▲",
+    title: "Runs",
+    description: "POST /runs — execute Workflow apps, blocking or with streamed step-by-step progress.",
+    href: "/docs/runs",
+    icon: "⚙️",
   },
   {
-    title: "Widgets",
-    description: "Drop-in floating chat and voice widgets. Zero UI code needed — just configure and go.",
-    href: "/docs/widgets",
-    icon: "🧩",
+    title: "Cancel Tasks",
+    description: "POST /tasks/{task_id}/cancel — stop an in-flight generation or workflow run.",
+    href: "/docs/tasks",
+    icon: "🛑",
   },
   {
-    title: "API Reference",
-    description: "Every class, method, type, event, and config option documented in detail.",
-    href: "/docs/api-reference",
-    icon: "📖",
+    title: "Knowledge Search",
+    description: "POST /knowledge/{id}/search — query a knowledge base and get scored matching chunks.",
+    href: "/docs/knowledge-search",
+    icon: "🔎",
   },
   {
-    title: "Troubleshooting",
-    description: "Common errors, debugging tips, and solutions for known issues.",
-    href: "/docs/troubleshooting",
+    title: "App Config",
+    description: "GET /config — greeting, starter questions, input fields, feature flags, and branding in one call.",
+    href: "/docs/config",
+    icon: "🎛️",
+  },
+  {
+    title: "Errors",
+    description: "The OpenAI-style error envelope, status codes, and how failures arrive mid-stream.",
+    href: "/docs/errors",
     icon: "🔧",
   },
 ];
@@ -75,11 +81,11 @@ export default function Home() {
             </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 tracking-tight">
-            @xpectrum/sdk
+            Xpectrum API
           </h1>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--muted)" }}>
-            Add AI Chat &amp; Voice to any React or Next.js app. Install once, configure with your
-            server URL + API key, and build your own AI-powered frontend.
+            An OpenAI-compatible API for chat, workflows, and knowledge
+            retrieval. Works with any HTTP client or OpenAI SDK.
           </p>
           <div className="flex gap-4 justify-center mt-8">
             <Link
@@ -90,24 +96,24 @@ export default function Home() {
               Get Started
             </Link>
             <Link
-              href="/docs/api-reference"
+              href="/docs/chat-completions"
               className="px-6 py-3 rounded-lg font-medium no-underline text-sm border transition-colors"
               style={{
                 borderColor: "var(--border)",
                 color: "var(--foreground)",
               }}
             >
-              API Reference
+              Chat Completions
             </Link>
           </div>
 
-          {/* Quick install */}
+          {/* Base URL */}
           <div
             className="mt-8 inline-flex items-center gap-3 px-5 py-3 rounded-lg font-mono text-sm"
             style={{ background: "var(--code-bg)", color: "var(--code-text)" }}
           >
-            <span style={{ color: "var(--muted)" }}>$</span>
-            npm install @xpectrum/sdk
+            <span style={{ color: "var(--muted)" }}>Base URL</span>
+            https://api.cloud.xpectrum.dev/v1
           </div>
         </div>
       </header>
@@ -119,7 +125,7 @@ export default function Home() {
             className="text-sm font-semibold uppercase tracking-wider mb-8"
             style={{ color: "var(--muted)" }}
           >
-            Documentation
+            API Reference
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {CARDS.map((card) => (
@@ -149,7 +155,7 @@ export default function Home() {
         className="border-t py-8 text-center text-sm"
         style={{ borderColor: "var(--border)", color: "var(--muted)" }}
       >
-        <p>@xpectrum/sdk v0.1.0 — MIT License</p>
+        <p>Xpectrum API · v1</p>
       </footer>
     </div>
   );

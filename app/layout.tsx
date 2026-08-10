@@ -13,9 +13,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Xpectrum SDK Documentation",
+  title: "Xpectrum API Documentation",
   description:
-    "Complete beginner-friendly documentation for @xpectrum/sdk — AI Chat & Voice for React and Next.js",
+    "API reference for the Xpectrum platform — chat completions, threads, workflow runs, and knowledge search.",
 };
 
 export default function RootLayout({
