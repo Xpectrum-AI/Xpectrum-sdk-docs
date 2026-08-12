@@ -56,7 +56,7 @@ export default function ThreadsPage() {
         />
         <CodeBlock
           language="bash"
-          code={`curl "https://api.cloud.xpectrum.dev/v1/threads?user=user-123&limit=20" \\
+          code={`curl "https://cloud.xpectrum.dev/v1/threads?user=user-123&limit=20" \\
   -H "Authorization: Bearer app-XXXXXXXXXXXXXXXX"`}
         />
         <CodeBlock
@@ -114,7 +114,7 @@ export default function ThreadsPage() {
         />
         <CodeBlock
           language="bash"
-          code={`curl "https://api.cloud.xpectrum.dev/v1/threads/5f0c7e0e-6b0a-4f7d-9f1e-8a2b3c4d5e6f/messages?user=user-123" \\
+          code={`curl "https://cloud.xpectrum.dev/v1/threads/5f0c7e0e-6b0a-4f7d-9f1e-8a2b3c4d5e6f/messages?user=user-123" \\
   -H "Authorization: Bearer app-XXXXXXXXXXXXXXXX"`}
         />
         <CodeBlock

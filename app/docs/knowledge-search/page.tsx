@@ -48,7 +48,7 @@ export default function KnowledgeSearchPage() {
         />
         <CodeBlock
           language="bash"
-          code={`curl https://api.cloud.xpectrum.dev/v1/knowledge/3bffeb63-c68f-4ea3-a117-bdb0e47ed8eb/search \\
+          code={`curl https://cloud.xpectrum.dev/v1/knowledge/3bffeb63-c68f-4ea3-a117-bdb0e47ed8eb/search \\
   -H "Authorization: Bearer YOUR_KNOWLEDGE_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{ "query": "refund policy", "limit": 5 }'`}

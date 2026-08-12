@@ -74,7 +74,7 @@ if (!userId) {
           code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
-  baseUrl: "https://api.cloud.xpectrum.dev/v1",
+  baseUrl: "https://cloud.xpectrum.dev/v1",
   apiKey: "app-XXXXXXXXXXXXXXXX", // still visible in the browser — prototypes only
   user: userId,                   // from Step 1
 });
@@ -132,7 +132,7 @@ async function send(question: string) {
       const answerEl = document.getElementById("answer");
       answerEl.textContent = "";
 
-      const res = await fetch("https://api.cloud.xpectrum.dev/v1/chat/completions", {
+      const res = await fetch("https://cloud.xpectrum.dev/v1/chat/completions", {
         method: "POST",
         headers: {
           "Authorization": "Bearer " + API_KEY,
@@ -189,7 +189,7 @@ async function send(question: string) {
         </p>
         <CodeBlock
           language="text"
-          code={`Browser  ──►  YOUR server (/api/chat, key lives here)  ──►  api.cloud.xpectrum.dev`}
+          code={`Browser  ──►  YOUR server (/api/chat, key lives here)  ──►  cloud.xpectrum.dev`}
         />
 
         <h3 className="text-lg font-semibold mt-8 mb-2">Step 1 — Put the key in an environment variable</h3>
@@ -211,7 +211,7 @@ async function send(question: string) {
           code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
-  baseUrl: "https://api.cloud.xpectrum.dev/v1",
+  baseUrl: "https://cloud.xpectrum.dev/v1",
   apiKey: process.env.XPECTRUM_API_KEY!, // secret, server-only
   user: "user-123", // from your auth session / cookie — not from the request body
 });
@@ -261,7 +261,7 @@ answerEl.textContent = data.content;`}
           code={`export async function POST(req: Request) {
   const body = await req.json();
 
-  const upstream = await fetch("https://api.cloud.xpectrum.dev/v1/chat/completions", {
+  const upstream = await fetch("https://cloud.xpectrum.dev/v1/chat/completions", {
     method: "POST",
     headers: {
       Authorization: \`Bearer \${process.env.XPECTRUM_API_KEY}\`, // no NEXT_PUBLIC_ prefix!
@@ -293,7 +293,7 @@ app.use(express.json());
 app.use(express.static("public")); // serves your index.html
 
 app.post("/api/chat", async (req, res) => {
-  const upstream = await fetch("https://api.cloud.xpectrum.dev/v1/chat/completions", {
+  const upstream = await fetch("https://cloud.xpectrum.dev/v1/chat/completions", {
     method: "POST",
     headers: {
       "Authorization": "Bearer " + process.env.XPECTRUM_API_KEY, // secret, server-only
@@ -357,7 +357,7 @@ app.listen(3000, () => console.log("http://localhost:3000"));`}
           code={`import { ChatWidget } from "xpectrum";
 
 const widget = new ChatWidget({
-  baseUrl: "https://api.cloud.xpectrum.dev/v1",
+  baseUrl: "https://cloud.xpectrum.dev/v1",
   apiKey: "app-XXXXXXXXXXXXXXXX",
   user: userId,                    // same rules as above: login id or per-browser id
 

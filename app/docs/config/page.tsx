@@ -25,7 +25,7 @@ export default function ConfigPage() {
         </h2>
         <CodeBlock
           language="bash"
-          code={`curl https://api.cloud.xpectrum.dev/v1/config \\
+          code={`curl https://cloud.xpectrum.dev/v1/config \\
   -H "Authorization: Bearer app-XXXXXXXXXXXXXXXX"`}
         />
         <CodeBlock

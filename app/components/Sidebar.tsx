@@ -122,7 +122,7 @@ export default function Sidebar() {
         style={{ borderColor: "var(--sidebar-border)", color: "var(--muted)" }}
       >
         <p>API v1</p>
-        <p className="mt-1">api.cloud.xpectrum.dev</p>
+        <p className="mt-1">cloud.xpectrum.dev</p>
       </div>
     </aside>
   );

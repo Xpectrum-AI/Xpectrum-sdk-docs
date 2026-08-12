@@ -24,7 +24,7 @@ export default function ModelsPage() {
         </h2>
         <CodeBlock
           language="bash"
-          code={`curl https://api.cloud.xpectrum.dev/v1/models \\
+          code={`curl https://cloud.xpectrum.dev/v1/models \\
   -H "Authorization: Bearer app-XXXXXXXXXXXXXXXX"`}
         />
         <CodeBlock
@@ -52,7 +52,7 @@ export default function ModelsPage() {
           code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
-  baseUrl: "https://api.cloud.xpectrum.dev/v1",
+  baseUrl: "https://cloud.xpectrum.dev/v1",
   apiKey: "app-XXXXXXXXXXXXXXXX",
 });
 

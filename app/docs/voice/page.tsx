@@ -47,7 +47,7 @@ export default function VoiceGuidePage() {
           code={`import { XpectrumVoice } from 'xpectrum';
 
 const voice = new XpectrumVoice({
-  baseUrl: 'https://app.yourserver.com/v1',  // Same API base URL as chat
+  baseUrl: 'https://cloud.xpectrum.dev/v1',  // Same API base URL as chat
   apiKey: 'app-...',                         // Your app's API key
 });`}
         />

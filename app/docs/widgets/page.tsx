@@ -52,7 +52,7 @@ export default function WidgetsPage() {
           code={`import { ChatWidget } from 'xpectrum';
 
 new ChatWidget({
-  baseUrl: 'https://app.yourserver.com/v1',
+  baseUrl: 'https://cloud.xpectrum.dev/v1',
   apiKey: 'app-...',
   welcomeMessage: 'Hi! How can I help?',
   logo: 'https://yoursite.com/logo.png',
@@ -117,7 +117,7 @@ new ChatWidget({
           code={`import { VoiceWidget } from 'xpectrum';
 
 new VoiceWidget({
-  baseUrl: 'https://app.yourserver.com/v1',
+  baseUrl: 'https://cloud.xpectrum.dev/v1',
   apiKey: 'app-...',
   position: 'bottom-right',
   buttonColor: '#7C3AED',
@@ -162,9 +162,9 @@ new VoiceWidget({
           code={`import { OmnichannelWidget } from 'xpectrum';
 
 new OmnichannelWidget({
-  chatBaseUrl: 'https://app.yourserver.com/v1',
+  chatBaseUrl: 'https://cloud.xpectrum.dev/v1',
   chatApiKey: 'app-...',
-  voiceBaseUrl: 'https://app.yourserver.com/v1',
+  voiceBaseUrl: 'https://cloud.xpectrum.dev/v1',
   apiKey: 'app-...',
   position: 'bottom-right',
   buttonColor: '#7C3AED',
@@ -219,7 +219,7 @@ widget.destroy();  // remove the widget from the page entirely`}
           code={`<script>
   window.XpectrumChatConfig = {
     apiKey: 'app-...',
-    baseUrl: 'https://app.yourserver.com/v1',
+    baseUrl: 'https://cloud.xpectrum.dev/v1',
     // Optional branding:
     logo: 'https://yoursite.com/logo.png',
     title: 'Acme Support',
@@ -236,7 +236,7 @@ widget.destroy();  // remove the widget from the page entirely`}
           code={`<script>
   window.XpectrumVoiceConfig = {
     apiKey: 'app-...',
-    baseUrl: 'https://app.yourserver.com/v1',
+    baseUrl: 'https://cloud.xpectrum.dev/v1',
     buttonColor: '#7C3AED',
   };
 </script>

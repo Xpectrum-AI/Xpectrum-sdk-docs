@@ -49,7 +49,7 @@ export default function TasksPage() {
         />
         <CodeBlock
           language="bash"
-          code={`curl https://api.cloud.xpectrum.dev/v1/tasks/d3adbeef-0000-4000-8000-000000000000/cancel \\
+          code={`curl https://cloud.xpectrum.dev/v1/tasks/d3adbeef-0000-4000-8000-000000000000/cancel \\
   -H "Authorization: Bearer app-XXXXXXXXXXXXXXXX" \\
   -H "Content-Type: application/json" \\
   -d '{ "user": "user-123" }'`}

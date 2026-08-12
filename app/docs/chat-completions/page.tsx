@@ -108,7 +108,7 @@ export default function ChatCompletionsPage() {
         </Callout>
         <CodeBlock
           language="bash"
-          code={`curl https://api.cloud.xpectrum.dev/v1/chat/completions \\
+          code={`curl https://cloud.xpectrum.dev/v1/chat/completions \\
   -H "Authorization: Bearer app-XXXXXXXXXXXXXXXX" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -228,7 +228,7 @@ for chunk in stream:
           code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
-  baseUrl: "https://api.cloud.xpectrum.dev/v1",
+  baseUrl: "https://cloud.xpectrum.dev/v1",
   apiKey: "app-XXXXXXXXXXXXXXXX",
   user: "user-123",
 });

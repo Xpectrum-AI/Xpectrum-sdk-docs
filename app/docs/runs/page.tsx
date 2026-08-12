@@ -67,7 +67,7 @@ export default function RunsPage() {
         </h2>
         <CodeBlock
           language="bash"
-          code={`curl https://api.cloud.xpectrum.dev/v1/runs \\
+          code={`curl https://cloud.xpectrum.dev/v1/runs \\
   -H "Authorization: Bearer app-XXXXXXXXXXXXXXXX" \\
   -H "Content-Type: application/json" \\
   -d '{

@@ -127,7 +127,7 @@ export default function Home() {
             style={{ background: "var(--code-bg)", color: "var(--code-text)" }}
           >
             <span style={{ color: "var(--muted)" }}>Base URL</span>
-            https://api.cloud.xpectrum.dev/v1
+            https://cloud.xpectrum.dev/v1
           </div>
         </div>
       </header>

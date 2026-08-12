@@ -19,7 +19,7 @@ export default function GettingStartedPage() {
         <h2 className="text-2xl font-semibold mb-4" id="base-url">
           Base URL
         </h2>
-        <CodeBlock language="text" code={`https://api.cloud.xpectrum.dev/v1`} />
+        <CodeBlock language="text" code={`https://cloud.xpectrum.dev/v1`} />
         <p className="mb-4 leading-relaxed">
           All endpoints in these docs are relative to this base URL. The chat
           endpoints are <strong>OpenAI-compatible</strong>, so any OpenAI SDK
@@ -101,7 +101,7 @@ export default function GettingStartedPage() {
         <p className="mb-4 leading-relaxed">Send your first message with curl:</p>
         <CodeBlock
           language="bash"
-          code={`curl https://api.cloud.xpectrum.dev/v1/chat/completions \\
+          code={`curl https://cloud.xpectrum.dev/v1/chat/completions \\
   -H "Authorization: Bearer app-XXXXXXXXXXXXXXXX" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -124,7 +124,7 @@ export default function GettingStartedPage() {
           code={`from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://api.cloud.xpectrum.dev/v1",
+    base_url="https://cloud.xpectrum.dev/v1",
     api_key="app-XXXXXXXXXXXXXXXX",
 )
 
@@ -142,7 +142,7 @@ for chunk in stream:
           code={`import OpenAI from "openai";
 
 const client = new OpenAI({
-  baseURL: "https://api.cloud.xpectrum.dev/v1",
+  baseURL: "https://cloud.xpectrum.dev/v1",
   apiKey: "app-XXXXXXXXXXXXXXXX",
 });
 
@@ -166,7 +166,7 @@ console.log(response.choices[0].message.content);`}
           code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
-  baseUrl: "https://api.cloud.xpectrum.dev/v1",
+  baseUrl: "https://cloud.xpectrum.dev/v1",
   apiKey: "app-XXXXXXXXXXXXXXXX",
   user: "user-123",
 });
