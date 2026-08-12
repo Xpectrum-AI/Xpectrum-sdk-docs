@@ -50,9 +50,15 @@ export default function GettingStartedPage() {
             <InlineCode>POST /knowledge/{"{id}"}/search</InlineCode>.
           </li>
         </ul>
-        <Callout type="warning" title="Keep keys server-side">
-          API keys grant full access to the app they belong to. Call this API
-          from your backend — never embed a key in browser or mobile code.
+        <Callout type="warning" title="Where to keep your key">
+          By default, treat an API key like a password: call this API from your
+          backend and keep the key out of client code. The exception is the
+          chat and voice <a href="/docs/widgets" style={{ color: "var(--accent)" }}>widgets</a>,
+          which run in the browser by design — before using a key there, limit
+          what it can do in the app&apos;s publish settings: switch{" "}
+          <em>Conversation history over API</em> off (and <em>Voice calls</em>{" "}
+          off where unused). A key restricted this way can hold a conversation
+          but cannot read any transcripts, so exposing it in a widget is safe.
         </Callout>
       </section>
 
@@ -100,9 +106,15 @@ export default function GettingStartedPage() {
   -H "Content-Type: application/json" \\
   -d '{
     "messages": [{ "role": "user", "content": "Hello!" }],
+    "stream": true,
     "user": "user-123"
   }'`}
         />
+        <p className="mb-4 leading-relaxed">
+          The reply streams back as SSE chunks. Streaming works for every app
+          type — Autonomous Agent apps reject non-streaming requests — so it is
+          the right default for a first call.
+        </p>
         <p className="mb-4 leading-relaxed">
           Or use the official OpenAI SDK — only the base URL and key change:
         </p>
@@ -116,11 +128,13 @@ client = OpenAI(
     api_key="app-XXXXXXXXXXXXXXXX",
 )
 
-response = client.chat.completions.create(
+stream = client.chat.completions.create(
     model="my-app",  # any string; the key already selects the app
     messages=[{"role": "user", "content": "Hello!"}],
+    stream=True,
 )
-print(response.choices[0].message.content)`}
+for chunk in stream:
+    print(chunk.choices[0].delta.content or "", end="")`}
         />
         <CodeBlock
           language="typescript"
@@ -144,12 +158,12 @@ console.log(response.choices[0].message.content);`}
         </p>
         <CodeBlock
           language="bash"
-          code={`npm install @xpectrum/sdk`}
+          code={`npm install xpectrum`}
         />
         <CodeBlock
           language="typescript"
           filename="quickstart-sdk.ts"
-          code={`import { XpectrumCompletions } from "@xpectrum/sdk";
+          code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
   baseUrl: "https://api.cloud.xpectrum.dev/v1",
@@ -188,6 +202,8 @@ console.log(res.content);`}
                 ["GET", "/models", "The model exposed by your API key (OpenAI-compatible)"],
                 ["GET", "/threads", "List a user's conversations"],
                 ["GET", "/threads/{thread_id}/messages", "Fetch one conversation's transcript"],
+                ["POST", "/voice/tokens/generate", "Start a voice call — exchanges the API key for a LiveKit room token"],
+                ["POST", "/voice/call-control/end-call", "End an active voice call"],
                 ["POST", "/runs", "Execute a Workflow app"],
                 ["POST", "/tasks/{task_id}/cancel", "Stop an in-flight generation or run"],
                 ["POST", "/knowledge/{knowledge_id}/search", "Search a knowledge base for matching chunks"],

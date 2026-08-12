@@ -100,6 +100,12 @@ export default function ChatCompletionsPage() {
         <h2 className="text-2xl font-semibold mb-4" id="blocking">
           Blocking request
         </h2>
+        <Callout type="warning" title="Not for Autonomous Agent apps">
+          Blocking mode works for Chatbot and Agent Flow apps. Autonomous
+          Agent apps reject it with{" "}
+          <InlineCode>Agent Chat App does not support blocking mode</InlineCode>{" "}
+          — use a streaming request for those.
+        </Callout>
         <CodeBlock
           language="bash"
           code={`curl https://api.cloud.xpectrum.dev/v1/chat/completions \\
@@ -212,14 +218,14 @@ for chunk in stream:
           Using the Xpectrum SDK
         </h2>
         <p className="mb-4 leading-relaxed">
-          <InlineCode>@xpectrum/sdk</InlineCode> wraps this endpoint —{" "}
+          <InlineCode>xpectrum</InlineCode> wraps this endpoint —{" "}
           <InlineCode>create()</InlineCode> resolves with the finished reply and{" "}
           <InlineCode>stream()</InlineCode> delivers tokens as they arrive, with
           SSE parsing, errors, and aborts handled for you:
         </p>
         <CodeBlock
           language="typescript"
-          code={`import { XpectrumCompletions } from "@xpectrum/sdk";
+          code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
   baseUrl: "https://api.cloud.xpectrum.dev/v1",

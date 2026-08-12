@@ -49,7 +49,7 @@ export default function ModelsPage() {
         <p className="mb-4 leading-relaxed">With the Xpectrum SDK:</p>
         <CodeBlock
           language="typescript"
-          code={`import { XpectrumCompletions } from "@xpectrum/sdk";
+          code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
   baseUrl: "https://api.cloud.xpectrum.dev/v1",

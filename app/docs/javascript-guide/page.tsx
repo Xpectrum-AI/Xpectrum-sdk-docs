@@ -21,7 +21,7 @@ export default function JavaScriptGuidePage() {
         anyone who opens DevTools. <strong>Option B (client + server)</strong>{" "}
         is what you ship to production: the browser talks to <em>your</em>{" "}
         server, and only your server knows the key. In both options the{" "}
-        <InlineCode>@xpectrum/sdk</InlineCode> package is the recommended way —
+        <InlineCode>xpectrum</InlineCode> package is the recommended way —
         plain-fetch versions follow for projects that can&apos;t use it.
       </Callout>
 
@@ -32,9 +32,12 @@ export default function JavaScriptGuidePage() {
         </h2>
 
         <Callout type="warning" title="The key is exposed">
-          Anything in browser code is public. Use this only for local
-          prototypes, demos, or internal tools — never on a public website. For
-          production, use Option B.
+          Anything in browser code is public. Before shipping a key to the
+          browser, restrict it in the app&apos;s publish settings — switch{" "}
+          <em>Conversation history over API</em> off (and <em>Voice calls</em>{" "}
+          off where unused) so an exposed key can chat but cannot read
+          transcripts. If the key needs history access, keep it on your server
+          and use Option B.
         </Callout>
 
         <h3 className="text-lg font-semibold mt-8 mb-2">Step 1 — Get your app key</h3>
@@ -65,10 +68,10 @@ if (!userId) {
           The SDK streams by default and handles SSE parsing, conversation
           tracking, errors, and aborts for you:
         </p>
-        <CodeBlock language="bash" code={`npm install @xpectrum/sdk`} />
+        <CodeBlock language="bash" code={`npm install xpectrum`} />
         <CodeBlock
           language="typescript"
-          code={`import { XpectrumCompletions } from "@xpectrum/sdk";
+          code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
   baseUrl: "https://api.cloud.xpectrum.dev/v1",
@@ -205,7 +208,7 @@ async function send(question: string) {
         <CodeBlock
           language="typescript"
           filename="app/api/chat/route.ts"
-          code={`import { XpectrumCompletions } from "@xpectrum/sdk";
+          code={`import { XpectrumCompletions } from "xpectrum";
 
 const ai = new XpectrumCompletions({
   baseUrl: "https://api.cloud.xpectrum.dev/v1",
@@ -344,14 +347,14 @@ app.listen(3000, () => console.log("http://localhost:3000"));`}
         </h3>
         <p className="mb-4 leading-relaxed">
           If you don&apos;t want to build a UI at all,{" "}
-          <InlineCode>@xpectrum/sdk</InlineCode> ships a ready-made floating
+          <InlineCode>xpectrum</InlineCode> ships a ready-made floating
           chat bubble. One call gives you the button, the chat window,
           streaming replies, and conversation memory — you just pick where it
           sits and what colors it uses:
         </p>
         <CodeBlock
           language="typescript"
-          code={`import { ChatWidget } from "@xpectrum/sdk";
+          code={`import { ChatWidget } from "xpectrum";
 
 const widget = new ChatWidget({
   baseUrl: "https://api.cloud.xpectrum.dev/v1",
@@ -399,9 +402,10 @@ const widget = new ChatWidget({
         </div>
         <Callout type="info" title="Key handling still applies">
           The widget runs in the browser, so putting the app key in its config
-          exposes it (Option A rules). For production, point{" "}
-          <InlineCode>baseUrl</InlineCode> at your Option B proxy instead of
-          Xpectrum and keep the real key on the server.
+          exposes it. Two safe ways to ship it: restrict the key in the
+          app&apos;s publish settings (history off — the widget never needs it),
+          or point <InlineCode>baseUrl</InlineCode> at your Option B proxy and
+          keep the real key on the server.
         </Callout>
 
         <h3 className="text-lg font-semibold mt-10 mb-2">

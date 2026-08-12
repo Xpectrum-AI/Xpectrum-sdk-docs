@@ -20,6 +20,18 @@ const NAV_SECTIONS = [
     ],
   },
   {
+    title: "Voice",
+    items: [
+      { label: "Voice Module", href: "/docs/voice" },
+    ],
+  },
+  {
+    title: "SDK",
+    items: [
+      { label: "Widgets", href: "/docs/widgets" },
+    ],
+  },
+  {
     title: "Workflows",
     items: [
       { label: "Runs", href: "/docs/runs" },

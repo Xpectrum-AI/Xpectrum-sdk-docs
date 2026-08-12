@@ -20,6 +20,13 @@ export default function ThreadsPage() {
         started them.
       </p>
 
+      <Callout type="warning" title="Requires history access">
+        These endpoints work only when <em>Conversation history over API</em>{" "}
+        is enabled in the app&apos;s publish settings. When it is off — the
+        recommended state for keys used in browser widgets — they return{" "}
+        <InlineCode>403 Forbidden</InlineCode>. Chat itself is unaffected.
+      </Callout>
+
       {/* ── List threads ── */}
       <section className="mb-12">
         <h2 className="text-2xl font-semibold mb-4" id="list-threads">

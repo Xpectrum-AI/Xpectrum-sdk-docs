@@ -9,7 +9,7 @@ const CARDS = [
   },
   {
     title: "JavaScript Guide",
-    description: "Step-by-step with plain fetch or @xpectrum/sdk: browser-only setup, the secret-key server proxy, and styling your chat UI.",
+    description: "Step-by-step with plain fetch or xpectrum: browser-only setup, the secret-key server proxy, and styling your chat UI.",
     href: "/docs/javascript-guide",
     icon: "🛠️",
   },
@@ -30,6 +30,18 @@ const CARDS = [
     description: "GET /threads — list a user's conversations and fetch full transcripts with citations.",
     href: "/docs/threads",
     icon: "🧵",
+  },
+  {
+    title: "Voice Module",
+    description: "Real-time AI voice calls over WebRTC — live transcription, mic control, and call lifecycle events.",
+    href: "/docs/voice",
+    icon: "🎙️",
+  },
+  {
+    title: "Widgets",
+    description: "Drop-in chat window, voice-call orb, or both — one script tag, fully brandable, no UI code.",
+    href: "/docs/widgets",
+    icon: "🧩",
   },
   {
     title: "Runs",
@@ -84,8 +96,10 @@ export default function Home() {
             Xpectrum API
           </h1>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "var(--muted)" }}>
-            An OpenAI-compatible API for chat, workflows, and knowledge
-            retrieval. Works with any HTTP client or OpenAI SDK.
+            One API for AI chat, real-time voice calls, workflows, and
+            knowledge retrieval. OpenAI-compatible where it counts — use any
+            HTTP client or OpenAI SDK — with drop-in widgets when you&apos;d
+            rather not build UI at all.
           </p>
           <div className="flex gap-4 justify-center mt-8">
             <Link
